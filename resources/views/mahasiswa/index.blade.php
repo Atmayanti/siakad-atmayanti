@@ -5,14 +5,14 @@
             <div class="pull-left mt-2">
                 <h2>JURUSAN TEKNOLOGI INFORMASI-POLITEKNIK NEGERI MALANG</h2>
             </div>
-            {{--  <div class="float-left my-2">
+            <div class="float-left my-2">
                 <form action="{{ route('mahasiswa.index') }}">
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="Search . . . " name="search" value="{{ request('search')}}">
                         <button class="btn btn-success" type="submit">Search</button>
                     </div>
                 </form>
-            </div>  --}}
+            </div>
             <div class="float-right my-2">
                 <a class="btn btn-success" href="{{ route('mahasiswa.create') }}"> Input Mahasiswa</a>
             </div>
