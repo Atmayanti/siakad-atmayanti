@@ -6,17 +6,25 @@
         <h4>JURUSAN TEKNOLOGI INFORMASI-POLITEKNIK NEGERI MALANG</h4>
     </div>
     <h2 class="text-center mt-4 mb-5">KARTU HASIL STUDI (KHS)</h2>
-    <strong>Name: </strong> {{$khs->mahasiswa->nama}}<br>
-    <strong>NIM: </strong> {{$khs->mahasiswa->nim}}<br>
-    <strong>Class: </strong> {{$khs->mahasiswa->kelas->nama_kelas}}<br><br>
+    <div>
+        <div class="float-left my-6">
+
+            <strong>Nama&nbsp;: </strong> {{$khs->mahasiswa->nama}}<br>
+            <strong>NIM&nbsp;&nbsp;&nbsp;: </strong> {{$khs->mahasiswa->nim}}<br>
+            <strong>Kelas&nbsp;&nbsp;: </strong> {{$khs->mahasiswa->kelas->nama_kelas}}<br><br>
+        </div>
+        <div>
+
+            <a href="{{ route('mahasiswa.index') }}" class="btn btn-success float-right my-3">Kembali</a>
+        </div>
+    </div>
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th scope="col">Mata Kuliah</th>
-                <th scope="col">SKS</th>
-                <th scope="col">Semester</th>
-                <th scope="col">Nilai Angka</th>
-                <th scope="col">Nilai Huruf</th>
+                <th>Mata Kuliah</th>
+                <th>SKS</th>
+                <th>Semester</th>
+                <th>Nilai</th>
             </tr>
         </thead>
         <tbody>
@@ -30,6 +38,5 @@
             @endforeach
         </tbody>
     </table>
-    <a href="{{ route('mahasiswa.index') }}" class="btn btn-success">Kembali</a>
 </div>
 @endsection 

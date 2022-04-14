@@ -15,13 +15,13 @@ class RelasiMahasiswaMatakuliahTable extends Migration
     {
         Schema::create('mahasiswa_matakuliah', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('mahasiswa_id');
-            $table->unsignedBigInteger('matakuliah_id');
+            $table->unsignedBigInteger('mahasiswa_id')->nullable();
+            $table->unsignedBigInteger('matakuliah_id')->nullable();
             $table->string('nilai', 5);
             $table->timestamps();
 
             $table->foreign('mahasiswa_id')->references('id_mahasiswa')->on('mahasiswa');
-            $table->foreign('matakuliah_id')->references('id_matakuliah')->on('matakuliah');
+            $table->foreign('matakuliah_id')->references('id')->on('matakuliah');
         });
     }
 
