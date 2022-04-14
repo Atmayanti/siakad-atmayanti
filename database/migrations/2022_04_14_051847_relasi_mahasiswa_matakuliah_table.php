@@ -17,7 +17,7 @@ class RelasiMahasiswaMatakuliahTable extends Migration
             $table->id();
             $table->unsignedBigInteger('mahasiswa_id')->nullable();
             $table->unsignedBigInteger('matakuliah_id')->nullable();
-            $table->string('nilai', 5);
+            $table->string('nilai', 5)->nullable();
             $table->timestamps();
 
             $table->foreign('mahasiswa_id')->references('id_mahasiswa')->on('mahasiswa');
