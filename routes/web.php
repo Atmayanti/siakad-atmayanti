@@ -15,10 +15,11 @@ use App\Http\Controllers\MahasiswaController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('mahasiswa.index');
+// });
 
+Route::get('/', [MahasiswaController::class, 'index']);
 
 Route::resource('mahasiswa', MahasiswaController::class);
 
