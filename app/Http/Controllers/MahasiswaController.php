@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Kelas;
 use App\Models\Mahasiswa;
+use App\Models\MataKuliah;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\Mahasiswa_MataKuliah;
 
 class MahasiswaController extends Controller
 {
@@ -169,5 +171,16 @@ class MahasiswaController extends Controller
 
         return redirect()->route('mahasiswa.index')
         ->with('success', 'Mahasiswa Berhasil Dihapus');
+    }
+
+    public function khs($id)
+    {
+
+        $khs = Mahasiswa_MataKuliah::where('mahasiswa_id', $id)
+            ->with('matakuliah')->get();
+        $khs->mahasiswa = Mahasiswa::with('kelas')
+            ->where('id_mahasiswa', $id)->first();
+
+        return view('mahasiswa.khs', compact('khs'));
     }
 };

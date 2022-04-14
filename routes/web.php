@@ -22,4 +22,4 @@ use App\Http\Controllers\MahasiswaController;
 Route::get('/', [MahasiswaController::class, 'index']);
 
 Route::resource('mahasiswa', MahasiswaController::class);
-
+Route::get('/khsmahasiswa/{id}', [MahasiswaController::class, 'khs'])->name('mahasiswa.khs');
