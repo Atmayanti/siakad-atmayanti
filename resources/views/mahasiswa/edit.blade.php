@@ -18,7 +18,7 @@
                         </ul>
                     </div>
                     @endif
-                    <form method="post" action="{{ route('mahasiswa.update', $Mahasiswa->nim) }}" id="myForm">
+                    <form method="post" action="{{ route('mahasiswa.update', $Mahasiswa->nim) }}" id="myForm" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="form-group">
@@ -57,13 +57,27 @@
                             <label for="Email">Email</label> 
                             <input type="email" name="Email" class="form-control" id="Email" value="{{ $Mahasiswa->email }}" aria-describedby="Email" > 
                         </div>
-                        <diva class="form-group">
+                        <div class="form-group">
                             <label for="Alamat">Alamat</label> 
                             <textarea name="Alamat" class="form-control" id="Alamat" aria-describedby="Alamat" >{{ $Mahasiswa->alamat }} </textarea>
-                        </diva>
+                        </div>
                         <div class="form-group">
                             <label for="Tanggal_Lahir">Tanggal Lahir</label> 
                             <input type="date" name="Tanggal_Lahir" class="form-control" id="Tanggal_Lahir" value="{{ $Mahasiswa->tanggal_lahir }}" aria-describedby="Tanggal_Lahir" > 
+                        </div>
+                        <div class="form-group">
+                            <label for="image">Foto</label>
+                            <input type="file" class="form-control" name="image" value="{{$Mahasiswa->foto}}"></br>
+                            @if ($Mahasiswa->foto != NULL)
+                                @php
+                                    $img = $Mahasiswa->foto
+                                @endphp
+                                @else
+                                @php
+                                    $img = 'images/avatar.png'
+                                @endphp
+                            @endif
+                            <img width="150px" src="{{asset('storage/'.$img)}}">
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>

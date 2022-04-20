@@ -40,6 +40,7 @@
             <th>Email</th>
             <th>Alamat</th>
             <th>Tanggal Lahir</th>
+            <th>Foto</th>
             <th width="500px">Action</th>
             </tr>
             @foreach ($paginate as $mhs)
@@ -52,6 +53,16 @@
                 <td>{{ $mhs ->email }}</td>
                 <td>{{ $mhs ->alamat }}</td>
                 <td>{{ $mhs ->tanggal_lahir }}</td>
+                @if ($mhs->foto != NULL)
+                    @php
+                        $img = $mhs->foto
+                    @endphp
+                @else
+                    @php
+                        $img = 'images/avatar.png' 
+                    @endphp
+                @endif
+                <td><img class="rounded-circle" width="50px" src="{{ asset('storage/' . $img)}}" alt="" srcset=""></td>
             <td>
                 <form action="{{ route('mahasiswa.destroy',['mahasiswa'=>$mhs->nim]) }}" method="POST">
                     <a class="btn btn-info" href="{{ route('mahasiswa.show',$mhs->nim) }}">Show</a>
